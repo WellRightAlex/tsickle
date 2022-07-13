@@ -24,6 +24,7 @@
     "google-closure-compiler": "^20220405.0.0",
     "jasmine": "^4.1.0",
     "jasmine-node": "^3.0.0",
+    "rimraf": "^3.0.2",
     "source-map": "^0.7.3",
     "source-map-support": "^0.5.19",
     "tslib": "^2.2.0",
@@ -32,10 +33,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "rm -r out",
+    "clean": "rimraf out",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "test": "jasmine out/test/*.js && (cd demo && yarn && tsc) && yarn run lint",
-    "prepack": "yarn run clean && yarn run build && yarn run test"
+    "test": "jasmine out/test/*.js && (cd demo && npm i && tsc) && npm run lint",
+    "prepack": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
